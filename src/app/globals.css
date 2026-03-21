@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- المتغيرات ---- */
+:root {
+  --primary:   #1a3a5c;
+  --secondary: #2980b9;
+  --accent:    #27ae60;
+  --warning:   #f39c12;
+  --danger:    #e74c3c;
+  --bg:        #f0f4f8;
+}
+
+/* ---- اتجاه RTL أساسي ---- */
+* { box-sizing: border-box; }
+
+body {
+  direction: rtl;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: var(--bg);
+  color: #2c3e50;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
+::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #999; }
+
+/* ---- تأثيرات عامة ---- */
+.card-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* ---- Badge الحالات ---- */
+.badge-pending          { @apply bg-orange-50 text-orange-700 border border-orange-200; }
+.badge-approved         { @apply bg-blue-50 text-blue-700 border border-blue-200; }
+.badge-rejected         { @apply bg-red-50 text-red-700 border border-red-200; }
+.badge-preparing        { @apply bg-purple-50 text-purple-700 border border-purple-200; }
+.badge-ready            { @apply bg-cyan-50 text-cyan-700 border border-cyan-200; }
+.badge-out_for_delivery { @apply bg-teal-50 text-teal-700 border border-teal-200; }
+.badge-delivered        { @apply bg-green-50 text-green-700 border border-green-200; }
+.badge-cancelled        { @apply bg-gray-50 text-gray-600 border border-gray-200; }
+
+/* ---- Spinner ---- */
+.spinner {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border: 3px solid rgba(0,0,0,0.08);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Toast Animation ---- */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.toast-enter { animation: slideUp 0.3s ease; }
