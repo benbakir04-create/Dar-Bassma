@@ -1,8 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
-const SUPABASE_URL = "https://tafopyitnozfcwrtgumi.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_PglQBAFJLrLQaLAfNFlEYA_7-qZ9YyW";
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request: { headers: request.headers } });
