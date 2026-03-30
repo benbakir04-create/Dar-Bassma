@@ -29,7 +29,7 @@ export async function middleware(request: NextRequest) {
   const user = session?.user;
 
   const pathname = request.nextUrl.pathname;
-  const publicPaths = ["/login", "/api/auth"];
+  const publicPaths = ["/login", "/api/auth", "/forgot-password", "/update-password"];
   const isPublic = publicPaths.some((p) => pathname.startsWith(p));
 
   console.log("=====MIDDLEWARE=====", pathname, "| USER:", user?.id ?? "none");
